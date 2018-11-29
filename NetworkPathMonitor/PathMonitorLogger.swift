@@ -1,9 +1,8 @@
 //
 //  PathMonitorLogger.swift
-//  PathMonitor
+//  NetworkPathMonitor
 //
-//  Created by Federico Cappelli on 26/11/2018.
-//  Copyright © 2018 Mimecast Ltd. All rights reserved.
+//  Created by Federico Cappelli on 29/11/2018.
 //
 
 import UIKit
