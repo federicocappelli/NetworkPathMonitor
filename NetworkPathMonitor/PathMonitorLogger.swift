@@ -5,7 +5,6 @@
 //  Created by Federico Cappelli on 29/11/2018.
 //
 
-import UIKit
 import Network
 
 class PathMonitorLogger: NSObject {
@@ -43,11 +42,12 @@ class PathMonitorLogger: NSObject {
         
         //get used interface
         let currentInterface = interfaces.first { path.usesInterfaceType($0.type) }
-        print("\(statusString) | \(ipv4String) | \(ipv6String) | \(dnsString) | \(expensiveString) - Current interface: \( currentInterface == nil ? "-" : currentInterface!.niceDescription())")
-        
+        let currentInterfaceString = currentInterface?.niceDescription() ?? "-"
         //Interfaces
-        let interfacesStrings = interfaces.map { $0.niceDescription() }
-        print("Available interfaces: \(interfacesStrings)")
+        var interfacesStrings = interfaces.map { $0.niceDescription() }
+        interfacesStrings = interfacesStrings.filter { $0 != currentInterfaceString }
+        
+        print("\(statusString) | \(ipv4String) | \(ipv6String) | \(dnsString) | \(expensiveString) - Current interface: \( currentInterface == nil ? "-" : currentInterfaceString) | Other available interfaces: \(interfacesStrings)")
     }
 }
 

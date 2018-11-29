@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func logPath() -> Void {
         pathMonitorLogger.logPath()
-        let deadlineTime = DispatchTime.now() + .seconds(1)
+        let deadlineTime = DispatchTime.now() + .seconds(2)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.logPath()
         }
